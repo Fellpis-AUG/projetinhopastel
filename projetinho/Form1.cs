@@ -23,8 +23,16 @@ namespace projetinho
     
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Formlogin formslogin = new Formlogin();
-            formslogin.ShowDialog();
+            loginS loginS = new loginS();
+            loginS.ShowDialog();
+            //Formlogin formslogin = new Formlogin();
+            //formslogin.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cardapio cardapio = new cardapio();
+            cardapio.Show();
         }
     }
 }

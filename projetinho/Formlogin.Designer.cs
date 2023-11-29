@@ -74,6 +74,7 @@
             this.label2.Size = new System.Drawing.Size(43, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "nome";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -84,6 +85,7 @@
             this.label3.Size = new System.Drawing.Size(56, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "numero";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txt_nome
             // 
@@ -91,6 +93,7 @@
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(100, 23);
             this.txt_nome.TabIndex = 4;
+            this.txt_nome.TextChanged += new System.EventHandler(this.txt_nome_TextChanged);
             // 
             // label4
             // 
@@ -101,6 +104,7 @@
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "senha";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -111,6 +115,7 @@
             this.label5.Size = new System.Drawing.Size(133, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "data_de_nacimento";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -121,6 +126,7 @@
             this.label6.Size = new System.Drawing.Size(68, 17);
             this.label6.TabIndex = 8;
             this.label6.Text = "endereço";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // textEndereco
             // 
@@ -128,6 +134,7 @@
             this.textEndereco.Name = "textEndereco";
             this.textEndereco.Size = new System.Drawing.Size(100, 23);
             this.textEndereco.TabIndex = 9;
+            this.textEndereco.TextChanged += new System.EventHandler(this.textEndereco_TextChanged);
             // 
             // tex_email
             // 
@@ -135,6 +142,7 @@
             this.tex_email.Name = "tex_email";
             this.tex_email.Size = new System.Drawing.Size(100, 23);
             this.tex_email.TabIndex = 14;
+            this.tex_email.TextChanged += new System.EventHandler(this.tex_email_TextChanged);
             // 
             // label7
             // 
@@ -145,6 +153,7 @@
             this.label7.Size = new System.Drawing.Size(49, 17);
             this.label7.TabIndex = 15;
             this.label7.Text = "e_mail";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // pictureBox1
             // 
@@ -164,6 +173,7 @@
             this.txt_numero.Name = "txt_numero";
             this.txt_numero.Size = new System.Drawing.Size(100, 23);
             this.txt_numero.TabIndex = 17;
+            this.txt_numero.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_numero_MaskInputRejected);
             // 
             // txtSenha
             // 
@@ -172,6 +182,7 @@
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(100, 23);
             this.txtSenha.TabIndex = 19;
+            this.txtSenha.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtSenha_MaskInputRejected);
             // 
             // listView1
             // 
