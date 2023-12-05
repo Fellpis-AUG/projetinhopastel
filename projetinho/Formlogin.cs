@@ -59,7 +59,23 @@ namespace projetinho
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                Usuario usuario = new Usuario(txt_nome.Text,
+                    tex_email.Text,
+                    txt_numero.Text,
+                    textEndereco.Text,
+                     Convert.ToDateTime(DataDeNacimento.Value),
+                     Criptografia.CriptografarSenha(txtSenha.Text));
+
+                UsuarioDAO usuarioDAO = new UsuarioDAO();
+                usuarioDAO.UpdateUser(usuario);
+                MessageBox.Show("cadastro feito");
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void confirmar_Click(object sender, EventArgs e)

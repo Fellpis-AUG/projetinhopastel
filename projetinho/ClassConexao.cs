@@ -24,7 +24,6 @@ namespace projetinho
                     + Environment.MachineName +
                     @"\SQLEXPRESS;Initial Catalog=" +
                     DataBase + ";Integrated Security=true";
-
             con = new SqlConnection(stringConnection);
             con.Open();   //Abrir a conexão com o banco de dados
         }

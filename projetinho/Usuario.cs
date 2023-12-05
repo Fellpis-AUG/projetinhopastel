@@ -17,6 +17,9 @@ namespace projetinho
         private string _enderco;
         private DateTime _data_De_Ncimento;
         private string _senha;
+        private string _bairro;
+        private string _rua;
+        private string _numero_casa;
 
         public Usuario(string nome, string e_mail, string numero, string enderco, DateTime data_de_nacimento, string senha)
         {
@@ -26,6 +29,12 @@ namespace projetinho
             Enderco = enderco;
             Senha = senha;
             Data_De_Nacimento = data_de_nacimento;
+        }
+        public Usuario(string bairro, string rua, string numero_casa)
+        {
+            _bairro = bairro;
+            Rua = rua;
+            _numero_casa = numero_casa;
         }
         public Usuario(string nome, int id, string e_mail, string numero, string enderco)
         {
@@ -84,6 +93,21 @@ namespace projetinho
         {
             set { _id = value; }
             get { return _id; }
+        }
+        public string Rua
+        {
+            set { _rua = value; }
+            get { return _rua; }
+        }
+        public string Bairro
+        {
+            set { _bairro = value; }
+            get { return _bairro; }
+        }
+        public string Numero_casa
+        {
+            set { _numero_casa = value; }
+            get { return _numero_casa; }
         }
     }
 }

@@ -61,7 +61,7 @@
             this.confirmar.Name = "confirmar";
             this.confirmar.Size = new System.Drawing.Size(203, 76);
             this.confirmar.TabIndex = 1;
-            this.confirmar.Text = "confirmar";
+            this.confirmar.Text = "login";
             this.confirmar.UseVisualStyleBackColor = true;
             this.confirmar.Click += new System.EventHandler(this.confirmar_Click);
             // 

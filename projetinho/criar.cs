@@ -53,7 +53,8 @@ namespace projetinho
                     txt_numero.Text,
                     textEndereco.Text,
                      Convert.ToDateTime(DataDeNacimento.Value),
-                     txtSenha.Text);
+                     Criptografia.CriptografarSenha(txtSenha.Text));
+
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
                 usuarioDAO.InsertUser(usuario);
                 MessageBox.Show("cadastro feito");
@@ -73,6 +74,11 @@ namespace projetinho
         private void criar_Load(object sender, EventArgs e)
         {
             UpdateListView();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
