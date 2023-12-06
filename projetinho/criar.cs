@@ -28,11 +28,10 @@ namespace projetinho
             {
                 foreach (Usuario usuar in usuario)
                 {
-                    ListViewItem lv = new ListViewItem(usuar.ToString());
+                    ListViewItem lv = new ListViewItem(usuar.Id.ToString());
                     lv.SubItems.Add(usuar.Nome);
                     lv.SubItems.Add(usuar.E_mail);
                     lv.SubItems.Add(usuar.Numero);
-                    lv.SubItems.Add(usuar.Enderco);
                     listView1.Items.Add(lv);
 
                 }
@@ -51,13 +50,13 @@ namespace projetinho
                 Usuario usuario = new Usuario(txt_nome.Text,
                     tex_email.Text,
                     txt_numero.Text,
-                    textEndereco.Text,
                      Convert.ToDateTime(DataDeNacimento.Value),
                      Criptografia.CriptografarSenha(txtSenha.Text));
 
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
                 usuarioDAO.InsertUser(usuario);
-                MessageBox.Show("cadastro feito");
+               
+                UpdateListView();
             }
             catch (Exception error)
             {
@@ -79,6 +78,13 @@ namespace projetinho
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            endereco endereco = new endereco();
+            endereco.Show();
+            
         }
     }
 }

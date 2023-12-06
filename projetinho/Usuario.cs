@@ -14,40 +14,45 @@ namespace projetinho
         private int _id;
         private string _e_mail;
         private string _numero;
-        private string _enderco;
         private DateTime _data_De_Ncimento;
         private string _senha;
         private string _bairro;
         private string _rua;
         private string _numero_casa;
 
-        public Usuario(string nome, string e_mail, string numero, string enderco, DateTime data_de_nacimento, string senha)
+        public Usuario(string nome, string e_mail, string numero, DateTime data_de_nacimento, string senha)
         {
             Nome = nome;
             E_mail = e_mail;
             Numero = numero;
-            Enderco = enderco;
             Senha = senha;
             Data_De_Nacimento = data_de_nacimento;
         }
+        public Usuario(string bairro, string rua, string numero_casa, int id)
+        {
+            Bairro = bairro;
+            Rua = rua;
+            Numero_casa = numero_casa;
+            Id = id;
+        }
         public Usuario(string bairro, string rua, string numero_casa)
         {
-            _bairro = bairro;
+            Bairro = bairro;
             Rua = rua;
-            _numero_casa = numero_casa;
+            Numero_casa = numero_casa;
+
         }
-        public Usuario(string nome, int id, string e_mail, string numero, string enderco)
+        public Usuario(string nome, int id, string e_mail, string numero)
         {
             Nome = nome;
             E_mail = e_mail;
             Numero = numero;
-            Enderco = enderco;
             Id = id;
 
         }
 
-        public Usuario(string nome, int id, string e_mail, string numero, string enderco, DateTime data_de_nacimento, string senha): 
-            this(nome, e_mail, numero, enderco, data_de_nacimento, senha)
+        public Usuario(string nome, int id, string e_mail, string numero, DateTime data_de_nacimento, string senha): 
+            this(nome, e_mail, numero, data_de_nacimento, senha)
         {
           
             Id = id;
@@ -73,11 +78,6 @@ namespace projetinho
         {
             set { _numero = value; }
             get { return _numero; }
-        }
-        public string Enderco
-        {
-            set { _enderco = value; }
-            get { return _enderco; }
         }
         public string Senha
         {

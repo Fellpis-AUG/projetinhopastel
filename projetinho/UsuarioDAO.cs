@@ -20,7 +20,7 @@ namespace projetinho
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"DELETE FROM Usuarios WHERE Id = @id";
+            sqlCommand.CommandText = @"DELETE FROM login WHERE Id = @id";
             sqlCommand.Parameters.AddWithValue("@id", Id);
             try
             {
@@ -47,27 +47,20 @@ namespace projetinho
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"INSERT INTO usuario VALUES ( @nome, @email, @numero, @endereco, @data_de_nacimento, @senha)";
+            sqlCommand.CommandText = @"INSERT INTO login VALUES ( @nome, @email, @numero, @data_de_nacimento, @senha)";
 
             sqlCommand.Parameters.AddWithValue("@nome", usuario.Nome);
             sqlCommand.Parameters.AddWithValue("@email", usuario.E_mail);
             sqlCommand.Parameters.AddWithValue("@numero", usuario.Numero);
-           
             sqlCommand.Parameters.AddWithValue("@data_de_nacimento", usuario.Data_De_Nacimento);
             sqlCommand.Parameters.AddWithValue("@senha", usuario.Senha);
 
-            if (IsValidEmail(email) == true)
+            if (IsValidEmail(email))
             {
-                sqlCommand.ExecuteNonQuery();
-                if (IsValidPhoneNumber(numero) == true)
-                {
-                    sqlCommand.ExecuteNonQuery();
-                    if (IsValidPassword(senha) == true)
-                    {
+
                         sqlCommand.ExecuteNonQuery();
-                    }
-                }
-               
+                    MessageBox.Show("cadastro feito");
+
             }
             else
             {
@@ -81,7 +74,7 @@ namespace projetinho
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"SELECT * FROM usuario WHERE email = @email AND senha = @senha";
+            sqlCommand.CommandText = @"SELECT * FROM login WHERE email = @email AND senha = @senha";
 
             sqlCommand.Parameters.AddWithValue("@email", email);
             sqlCommand.Parameters.AddWithValue("@senha", senha);
@@ -92,11 +85,10 @@ namespace projetinho
             {
                 while (reader.Read())
                 {
-                    Usuario usuario = new Usuario("nome",int.Parse("id"),"email","numero","endereco",DateTime.Parse("data_de_nascimento"),"senha");
+                    Usuario usuario = new Usuario("nome",int.Parse("id"),"email","numero",DateTime.Parse("data_de_nascimento"),"senha");
                     usuario.Nome = reader.GetString(0);
                     usuario.E_mail = reader.GetString(1);
                     usuario.Numero = reader.GetString(2);
-                   
                     usuario.Data_De_Nacimento = reader.GetDateTime(3);
                     usuario.Senha = reader.GetString(4);
                     return usuario;
@@ -117,7 +109,7 @@ namespace projetinho
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"UPDATE endereco SET bairro = @bairro, rua = @rua, numero_casa = @numero_casa WHERE id = @id";
+            sqlCommand.CommandText = @"UPDATE login SET bairro = @bairro, rua = @rua, numero_casa = @numero_casa WHERE id = @id";
 
             sqlCommand.Parameters.AddWithValue("@id", usuario.Id);
             sqlCommand.Parameters.AddWithValue("@nome", usuario.Nome);
@@ -129,15 +121,18 @@ namespace projetinho
 
             if (IsValidEmail(email) == true)
             {
-                sqlCommand.ExecuteNonQuery();
+
                 if (IsValidPhoneNumber(numero) == true)
                 {
                     sqlCommand.ExecuteNonQuery();
-                    if (IsValidPassword(senha) == true)
-                    {
-                        sqlCommand.ExecuteNonQuery();
-                    }
+
+
                 }
+                else
+                {
+                    MessageBox.Show("numero invalido");
+                }
+
 
             }
             else
@@ -174,9 +169,7 @@ namespace projetinho
         }
         public void InsertUser1(Usuario usuario)
         {
-            string email = usuario.E_mail;
-            string senha = usuario.Senha;
-            string numero = usuario.Numero;
+           
 
             ClassConexao connection = new ClassConexao();
             SqlCommand sqlCommand = new SqlCommand();
@@ -212,36 +205,39 @@ namespace projetinho
         //==================================================================================================//
         public bool IsValidPhoneNumber(string phoneNumber)
         {
-            // Validate strong password
+           
             string PhoneNumberPattern = ("^\\+?[1-9][0-9]{7,14}$");
 
             Regex PhoneNumberRegex = new Regex(PhoneNumberPattern);
 
             return PhoneNumberRegex.IsMatch(phoneNumber);
+
         }
 
         public bool IsValidEmail(string email)
         {
-            // Define a expressão regular para validar um endereço de e-mail
+            
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
 
-            // Cria um objeto Regex com a expressão regular
+           
             Regex regex = new Regex(pattern);
 
-            // Usa o método Match para verificar se o email corresponde ao padrão
+            
             return regex.IsMatch(email);
+            string phoneNumber;
+            {
+                // Validate strong password
+                string PhoneNumberPattern = ("^\\+?[1-9][0-9]{7,14}$");
+
+                Regex PhoneNumberRegex = new Regex(PhoneNumberPattern);
+
+                return PhoneNumberRegex.IsMatch(phoneNumber);
+
+            }
         }
 
-        public bool IsValidPassword(string password)
-        {
-            // Validate strong password
-            string passwordPattern = ("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
 
-            Regex validatePassword = new Regex(passwordPattern);
-
-            return validatePassword.IsMatch(password);
-        }
-
+       
 
         public List<Usuario> selectUser()
         {
@@ -251,7 +247,50 @@ namespace projetinho
             SqlCommand sqlCom = new SqlCommand();
 
             sqlCom.Connection = conn.ReturnConnection();
-            sqlCom.CommandText = "SELECT Id, nome, email, numero, endereco FROM usuario";
+            sqlCom.CommandText = "SELECT Id, nome, email, numero FROM login";
+
+            List<Usuario> lista = new List<Usuario>();
+
+            try
+            {
+                SqlDataReader dr = sqlCom.ExecuteReader();
+
+                
+                while (dr.Read())
+                {
+                    Usuario objeto = new Usuario(
+                     (string)dr["nome"],
+                     (int)dr["Id"],
+                    (string)dr["email"],
+                    (string)dr["numero"]
+                     );
+                    lista.Add(objeto);
+                }
+                dr.Close();
+
+            }
+            catch (Exception error)
+            {
+                throw new Exception("Erro" + error.Message);
+
+
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+            return lista;
+
+        }
+        public List<Usuario> selectUser1()
+        {
+
+
+            ClassConexao conn = new ClassConexao();
+            SqlCommand sqlCom = new SqlCommand();
+
+            sqlCom.Connection = conn.ReturnConnection();
+            sqlCom.CommandText = "SELECT * FROM endereco";
 
             List<Usuario> lista = new List<Usuario>();
 
@@ -263,15 +302,11 @@ namespace projetinho
                 while (dr.Read())
                 {
                     Usuario objeto = new Usuario(
-                     (string)dr["nome"],
-                     (int)dr["Id"],
-                    (string)dr["email"],
-                    (string)dr["numero"],
-                    (string)dr["endereco"]
-
-
-
-                                               );
+                     (string)dr["bairro"],
+                     (string)dr["Rua"],
+                    (string)dr["Numero_casa"],
+                    (int)dr["id"]
+                     );
                     lista.Add(objeto);
                 }
                 dr.Close();

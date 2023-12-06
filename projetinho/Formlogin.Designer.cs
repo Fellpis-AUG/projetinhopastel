@@ -35,8 +35,6 @@
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textEndereco = new System.Windows.Forms.TextBox();
             this.tex_email = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -47,10 +45,10 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.edit = new System.Windows.Forms.Button();
             this.DataDeNacimento = new System.Windows.Forms.DateTimePicker();
             this.deletar = new System.Windows.Forms.Button();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,25 +114,6 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "data_de_nacimento";
             this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(85, 146);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 17);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "endereço";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // textEndereco
-            // 
-            this.textEndereco.Location = new System.Drawing.Point(91, 166);
-            this.textEndereco.Name = "textEndereco";
-            this.textEndereco.Size = new System.Drawing.Size(100, 23);
-            this.textEndereco.TabIndex = 9;
-            this.textEndereco.TextChanged += new System.EventHandler(this.textEndereco_TextChanged);
             // 
             // tex_email
             // 
@@ -219,10 +198,6 @@
             // 
             this.columnHeader4.Text = "numero";
             // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "endereço";
-            // 
             // edit
             // 
             this.edit.Location = new System.Drawing.Point(289, 317);
@@ -257,6 +232,10 @@
             this.deletar.UseVisualStyleBackColor = true;
             this.deletar.Click += new System.EventHandler(this.deletar_Click);
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "senha";
+            // 
             // Formlogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -272,8 +251,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tex_email);
-            this.Controls.Add(this.textEndereco);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_nome);
@@ -298,8 +275,6 @@
         private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textEndereco;
         private System.Windows.Forms.TextBox tex_email;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -310,9 +285,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.DateTimePicker DataDeNacimento;
         private System.Windows.Forms.Button deletar;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

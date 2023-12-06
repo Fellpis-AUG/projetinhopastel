@@ -34,13 +34,10 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtSenha = new System.Windows.Forms.MaskedTextBox();
             this.txt_numero = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tex_email = new System.Windows.Forms.TextBox();
-            this.textEndereco = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
@@ -49,6 +46,7 @@
             this.confirmar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,8 +65,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader4});
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(74, 453);
@@ -94,10 +91,6 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "numero";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "endereço";
             // 
             // txtSenha
             // 
@@ -131,23 +124,6 @@
             this.tex_email.Name = "tex_email";
             this.tex_email.Size = new System.Drawing.Size(100, 20);
             this.tex_email.TabIndex = 31;
-            // 
-            // textEndereco
-            // 
-            this.textEndereco.Location = new System.Drawing.Point(38, 176);
-            this.textEndereco.Name = "textEndereco";
-            this.textEndereco.Size = new System.Drawing.Size(100, 20);
-            this.textEndereco.TabIndex = 30;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 156);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "endereço";
             // 
             // label5
             // 
@@ -228,13 +204,21 @@
             this.panel1.Controls.Add(this.txt_numero);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.tex_email);
-            this.panel1.Controls.Add(this.textEndereco);
             this.panel1.Location = new System.Drawing.Point(64, 11);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(348, 307);
             this.panel1.TabIndex = 38;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(582, 325);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(227, 76);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "inserir endereço";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // criar
             // 
@@ -243,6 +227,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::projetinho.Properties.Resources.fundo_pizzari;
             this.ClientSize = new System.Drawing.Size(910, 599);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
@@ -264,13 +249,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.MaskedTextBox txtSenha;
         private System.Windows.Forms.MaskedTextBox txt_numero;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tex_email;
-        private System.Windows.Forms.TextBox textEndereco;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_nome;
@@ -279,5 +261,6 @@
         private System.Windows.Forms.Button confirmar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
     }
 }

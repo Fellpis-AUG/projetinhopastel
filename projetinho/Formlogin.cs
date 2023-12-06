@@ -39,7 +39,6 @@ namespace projetinho
                     lv.SubItems.Add(usuar.Nome);
                     lv.SubItems.Add(usuar.E_mail);
                     lv.SubItems.Add(usuar.Numero);
-                    lv.SubItems.Add(usuar.Enderco);
                     listView1.Items.Add(lv);
 
                 }
@@ -64,7 +63,7 @@ namespace projetinho
                 Usuario usuario = new Usuario(txt_nome.Text,
                     tex_email.Text,
                     txt_numero.Text,
-                    textEndereco.Text,
+                    
                      Convert.ToDateTime(DataDeNacimento.Value),
                      Criptografia.CriptografarSenha(txtSenha.Text));
 
@@ -87,11 +86,12 @@ namespace projetinho
         {
             int index;
             index = listView1.FocusedItem.Index;
-            Id = int.Parse(listView1.Items[index].SubItems[0].Text);
+            //Id = int.Parse(listView1.Items[index].SubItems[0].Text);
             txt_nome.Text = listView1.Items[index].SubItems[1].Text;
             tex_email.Text = listView1.Items[index].SubItems[2].Text;
             txt_numero.Text = listView1.Items[index].SubItems[3].Text;
-            textEndereco.Text = listView1.Items[index].SubItems[4].Text;
+            txtSenha.Text = listView1.Items[index].SubItems[4].Text;
+
 
         }
 
@@ -120,7 +120,7 @@ namespace projetinho
             txt_nome.Clear();
             tex_email.Clear();
             txt_numero.Clear();
-            textEndereco.Clear();
+           
             txtSenha.Clear();
 
 

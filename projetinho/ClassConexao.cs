@@ -14,12 +14,12 @@ namespace projetinho
     {
         //Propriedades ou atributos
         private readonly SqlConnection con;
-        private readonly string DataBase = "Pizzaria_FEL";
+        private readonly string DataBase = "Pizzaa";
 
         //Construtor
-        public ClassConexao()                            //LAPTOP-9TN8R1CF\SQLEXPRESS
+        public ClassConexao()                         
         {
-            //Data Source=LAPTOP-9TN8R1CF\SQLEXPRESS;Initial Catalog=InvestimentosMais;Integrated Security=True
+          
             string stringConnection = @"Data Source="
                     + Environment.MachineName +
                     @"\SQLEXPRESS;Initial Catalog=" +
